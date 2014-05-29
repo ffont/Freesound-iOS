@@ -32,15 +32,59 @@
 }
 
 
-# pragma mark - Text Search
+# pragma mark - Search resources
 
-+ (NSURL *)URLforTextSearchWithSearchParameters:(NSDictionary *)parameters
++ (NSURL *)URLforTextSearchWithParameters:(NSDictionary *)parameters
 {
     //  "parameters" must be a dictionary with text search parameters as defined in Freesound API docummentation (www.freesound.org/docs/api/resources_apiv2.html#text-search)
     //  Both keys and values of the dictionary must be of the class NSString
     NSString *url = [NSString stringWithFormat:@"%@?%@", TEXT_SEARCH_URL, [self serializeParameterDictionary:parameters]];
     return [self prepareURL:url];
 }
+
++ (NSURL *)URLforContentSearchWithParameters:(NSDictionary *)parameters
+{
+    //  "parameters" must be a dictionary with content search parameters as defined in Freesound API docummentation (www.freesound.org/docs/api/resources_apiv2.html#content-search)
+    //  Both keys and values of the dictionary must be of the class NSString
+    NSString *url = [NSString stringWithFormat:@"%@?%@", CONTENT_SEARCH_URL, [self serializeParameterDictionary:parameters]];
+    return [self prepareURL:url];
+}
+
++ (NSURL *)URLforCombinedSearchWithParameters:(NSDictionary *)parameters
+{
+    //  "parameters" must be a dictionary with combined search parameters as defined in Freesound API docummentation (www.freesound.org/docs/api/resources_apiv2.html#combined-search)
+    //  Both keys and values of the dictionary must be of the class NSString
+    NSString *url = [NSString stringWithFormat:@"%@?%@", COMBINED_SEARCH_URL, [self serializeParameterDictionary:parameters]];
+    return [self prepareURL:url];
+}
+
+
+# pragma mark - Sound resources
+
++ (NSURL *)URLforSoundWithId:(NSInteger)sound_id
+{
+    NSString *url = [NSString stringWithFormat:SOUND_URL, [NSString stringWithFormat:@"%i", sound_id]];
+    return [self prepareURL:url];
+}
+
+
+# pragma mark - Pack resources
+
++ (NSURL *)URLforPackWithId:(NSInteger)pack_id
+{
+    NSString *url = [NSString stringWithFormat:PACK_URL, [NSString stringWithFormat:@"%i", pack_id]];
+    return [self prepareURL:url];
+}
+
+
+# pragma mark - User resources
+
++ (NSURL *)URLforUserWithUsername:(NSString *)username
+{
+    NSString *url = [NSString stringWithFormat:USER_URL, username];
+    return [self prepareURL:url];
+}
+
 
 
 @end

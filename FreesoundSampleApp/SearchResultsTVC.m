@@ -89,7 +89,7 @@
         @"page_size": @"50",
     };
     
-    NSURL *url = [FreesoundFetcher URLforTextSearchWithSearchParameters:search_parameters];
+    NSURL *url = [FreesoundFetcher URLforTextSearchWithParameters:search_parameters];
     NSLog(@"Fetching freesound url: %@", [url absoluteString]);
     dispatch_queue_t fetchQ = dispatch_queue_create("freesound fetcher", NULL);
     dispatch_async(fetchQ, ^{
