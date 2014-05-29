@@ -10,20 +10,36 @@
 @implementation FreesoundFetcher
 
 
-# pragma mark - Add key and encode helper
+# pragma mark - Utils
 
-+ (NSURL *)addBaseUrlAndApiKeyAndEncodeURL:(NSString *) url
++ (NSURL *)prepareURL:(NSString *) url
 {
-    return [NSURL URLWithString:[[NSString stringWithFormat:@"%@%@&token=%@", FREESOUND_BASE_URL, url, FreesoundAPIKey] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    //  Add base url, "token" parameter, "format" parameter and encodes "url"
+    return [NSURL URLWithString:[[NSString stringWithFormat:@"%@%@&token=%@&format=%@", FREESOUND_BASE_URL, url, FreesoundAPIKey, PreferredFormat] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+}
+
++ (NSString *)serializeParameterDictionary:(NSDictionary *) parameters
+{
+    //  Serializes the keys and values of an NSDictionary by converting them into a string of url parameters (&key1=value1&key2=value2...)
+    //  Keys and values are only added to the serialized string if they are NSStrings
+    NSString *serialized_parameters = @"";
+    for(id key in parameters){
+        if ([key isKindOfClass:[NSString class]] && [[parameters objectForKey:key] isKindOfClass:[NSString class]]){
+            serialized_parameters = [serialized_parameters stringByAppendingString:[NSString stringWithFormat:@"&%@=%@", key, [parameters objectForKey:key]]];
+        }
+    }
+    return serialized_parameters;
 }
 
 
 # pragma mark - Text Search
 
-+ (NSURL *)URLforTextSearchWithQuery:(NSString *)query
++ (NSURL *)URLforTextSearchWithSearchParameters:(NSDictionary *)parameters
 {
-    NSString *url = [NSString stringWithFormat:@"%@?query=%@&format=json&fields=name,username,description,previews,images&group_by_pack=1&sort=created_desc&page_size=50", TEXT_SEARCH_URL, query];
-    return [self addBaseUrlAndApiKeyAndEncodeURL:url];
+    //  "parameters" must be a dictionary with text search parameters as defined in Freesound API docummentation (www.freesound.org/docs/api/resources_apiv2.html#text-search)
+    //  Both keys and values of the dictionary must be of the class NSString
+    NSString *url = [NSString stringWithFormat:@"%@?%@", TEXT_SEARCH_URL, [self serializeParameterDictionary:parameters]];
+    return [self prepareURL:url];
 }
 
 

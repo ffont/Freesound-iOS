@@ -53,12 +53,10 @@
     });
 }
 
-
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self.player pause];
 }
-
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
                         change:(NSDictionary *)change context:(void *)context {
@@ -73,7 +71,6 @@
 
 
 #pragma mark - Play audio stuff
-
 
 - (IBAction)PlaySound {
     if (self.player.status == AVPlayerStatusReadyToPlay && self.player.currentItem.status == AVPlayerItemStatusReadyToPlay) {
@@ -91,7 +88,6 @@
     }
 }
 
-
 - (void)PlaySoundHelper {
     [self.player play];
     [self.playButton setEnabled:NO];
@@ -107,7 +103,6 @@
     }];
 }
 
-
 - (IBAction)StopSound {
     [self.player pause];
     // Set playhead at beggining
@@ -119,7 +114,6 @@
     [self.playButton setEnabled:YES];
 }
 
-
 -(void)audioDidFinishPlaying:(NSNotification *) notification {
     [self.stopButton setEnabled:NO];
     [self.playButton setEnabled:YES];
@@ -129,7 +123,6 @@
 
 
 # pragma mark - Image stuff
-
 
 -(void)loadImage
 {
@@ -145,7 +138,6 @@
 
 
 # pragma mark - Utils
-
 
 -(NSString *)secondsToFormattedTimeString:(Float64) timeInSeconds {
     NSUInteger dMinutes = floor((int)floor(timeInSeconds) % 3600 / 60);

@@ -30,18 +30,15 @@
 
 #pragma mark - Table view data source
 
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.sounds count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -57,32 +54,19 @@
 
 #pragma mark - Navigation
 
-// prepares the given ImageViewController to show the given photo
-// used either when segueing to an ImageViewController
-//   or when our UISplitViewController's Detail view controller is an ImageViewController
-
 - (void)prepareSoundViewController:(SoundViewController *)svc toDisplaySound:(NSDictionary *)sound
 {
     svc.title = [sound valueForKeyPath:@"name"];
     svc.sound_info = sound;
 }
 
-// In a story board-based application, you will often want to do a little preparation before navigation
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
     if ([sender isKindOfClass:[UITableViewCell class]]) {
-        // find out which row in which section we're seguing from
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
-            // found it ... are we doing the Display Photo segue?
             if ([segue.identifier isEqualToString:@"DisplaySound"]) {
-                // yes ... is the destination an ImageViewController?
                 if ([segue.destinationViewController isKindOfClass:[SoundViewController class]]) {
-                    // yes ... then we know how to prepare for that segue!
                     [self prepareSoundViewController:segue.destinationViewController
                                       toDisplaySound:self.sounds[indexPath.row]];
                 }
@@ -97,7 +81,15 @@
 - (void)fetchSounds
 {
     [self.refreshControl beginRefreshing];
-    NSURL *url = [FreesoundFetcher URLforTextSearchWithQuery:[self queryTerms]];
+    NSDictionary *search_parameters = @{
+        @"query" : self.queryTerms,
+        @"fields": @"name,username,description,previews,images",
+        @"group_by_pack": @"1",
+        @"sort": @"created_desc",
+        @"page_size": @"50",
+    };
+    
+    NSURL *url = [FreesoundFetcher URLforTextSearchWithSearchParameters:search_parameters];
     NSLog(@"Fetching freesound url: %@", [url absoluteString]);
     dispatch_queue_t fetchQ = dispatch_queue_create("freesound fetcher", NULL);
     dispatch_async(fetchQ, ^{
