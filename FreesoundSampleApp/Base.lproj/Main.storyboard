@@ -105,11 +105,16 @@
                                     <action selector="PlaySound" destination="nHP-es-ygW" eventType="touchUpInside" id="JKR-C6-3lV"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="o2J-Wk-xDj">
+                                <rect key="frame" x="150" y="137" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sound Instance" id="vRD-BA-sU5"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="o2J-Wk-xDj" id="qUr-3J-gt3"/>
                         <outlet property="description" destination="JBT-X3-9x2" id="yLD-U6-yoo"/>
                         <outlet property="image" destination="G9k-Gd-MMx" id="KbX-0W-Hoy"/>
                         <outlet property="playButton" destination="nsp-5U-0dH" id="N4a-qB-Hk0"/>

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
 
 
@@ -26,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.activityIndicator setHidden:NO];
     [self.stopButton setEnabled:NO];
     [self.playButton setEnabled:NO];
     [self.timeLabel setText:@"00:00.000"];
@@ -39,7 +41,8 @@
         AVPlayerItem* playerItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:url]];
         self.player = [[AVPlayer alloc] initWithPlayerItem:playerItem];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
-        [self.player addObserver:self forKeyPath:@"status" options:0 context:nil];
+        //[self.player addObserver:self forKeyPath:@"status" options:0 context:nil];
+        [self.player.currentItem addObserver:self forKeyPath:@"status" options:0 context:nil];
         Float64 duration  =  CMTimeGetSeconds(self.player.currentItem.asset.duration); // Need to get duration from asset instead of currentItem, currentItem returns nan (?)
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.timeLabel setText:[NSString stringWithFormat:@"-%@",[self secondsToFormattedTimeString:duration]]];
@@ -59,10 +62,10 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
                         change:(NSDictionary *)change context:(void *)context {
-    if (object == self.player && [keyPath isEqualToString:@"status"]) {
-        if (self.player.status == AVPlayerStatusReadyToPlay) {
+    if (object == self.player.currentItem && [keyPath isEqualToString:@"status"]) {
+        if (self.player.currentItem.status == AVPlayerItemStatusReadyToPlay) {
             [self.playButton setEnabled:YES];
-        } else if (self.player.status == AVPlayerStatusFailed) {
+        } else if (self.player.currentItem.status == AVPlayerStatusFailed) {
             NSLog(@"An error occurred while loading audio file into AVPlayer.");
         }
     }
@@ -134,6 +137,9 @@
     NSData *imgData=[NSData dataWithContentsOfURL:imgURL];
     dispatch_async(dispatch_get_main_queue(), ^{
         self.image.image = [UIImage imageWithData:imgData];
+        if (imgData){
+            [self.activityIndicator setHidden:YES];
+        }
     });
 }
 
