@@ -21,6 +21,7 @@
 		C61455C61937836000F69762 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C61455A81937836000F69762 /* UIKit.framework */; };
 		C61455CE1937836000F69762 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C61455CC1937836000F69762 /* InfoPlist.strings */; };
 		C61455D01937836000F69762 /* FreesoundSampleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455CF1937836000F69762 /* FreesoundSampleAppTests.m */; };
+		C61455E4193783EC00F69762 /* Freesound-iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455E1193783EC00F69762 /* Freesound-iOS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,10 @@
 		C61455CB1937836000F69762 /* FreesoundSampleAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FreesoundSampleAppTests-Info.plist"; sourceTree = "<group>"; };
 		C61455CD1937836000F69762 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C61455CF1937836000F69762 /* FreesoundSampleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreesoundSampleAppTests.m; sourceTree = "<group>"; };
+		C61455E0193783EC00F69762 /* Freesound-iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Freesound-iOS.h"; sourceTree = "<group>"; };
+		C61455E1193783EC00F69762 /* Freesound-iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Freesound-iOS.m"; sourceTree = "<group>"; };
+		C61455E2193783EC00F69762 /* FreesoundAPIKey.example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreesoundAPIKey.example.h; sourceTree = "<group>"; };
+		C61455E3193783EC00F69762 /* FreesoundAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreesoundAPIKey.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +117,7 @@
 		C61455AA1937836000F69762 /* FreesoundSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				C61455DF193783EC00F69762 /* Freesound-iOS */,
 				C61455B31937836000F69762 /* FreesoundSampleAppAppDelegate.h */,
 				C61455B41937836000F69762 /* FreesoundSampleAppAppDelegate.m */,
 				C61455B61937836000F69762 /* Main.storyboard */,
@@ -151,6 +157,17 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		C61455DF193783EC00F69762 /* Freesound-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C61455E0193783EC00F69762 /* Freesound-iOS.h */,
+				C61455E1193783EC00F69762 /* Freesound-iOS.m */,
+				C61455E2193783EC00F69762 /* FreesoundAPIKey.example.h */,
+				C61455E3193783EC00F69762 /* FreesoundAPIKey.h */,
+			);
+			path = "Freesound-iOS";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -251,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C61455BB1937836000F69762 /* FreesoundSampleAppViewController.m in Sources */,
+				C61455E4193783EC00F69762 /* Freesound-iOS.m in Sources */,
 				C61455B51937836000F69762 /* FreesoundSampleAppAppDelegate.m in Sources */,
 				C61455B11937836000F69762 /* main.m in Sources */,
 			);
