@@ -9,6 +9,7 @@
 #import "FreesoundAPIKey.h"
 
 # define FREESOUND_BASE_URL @"http://www.freesound.org/apiv2/"
+# define TEXT_SEARCH_URL @"search/text/"
 
 
 @interface FreesoundFetcher : NSObject
