@@ -7,23 +7,36 @@
 //
 
 #import "FreesoundSampleAppViewController.h"
+#import "SearchResultsTVC.h"
 
 @interface FreesoundSampleAppViewController ()
-
+@property (weak, nonatomic) IBOutlet UITextField *inputBox;
 @end
 
 @implementation FreesoundSampleAppViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"SearchSounds"]) {
+        if ([self.inputBox.text length] == 0) {
+            // Cancel segue if input box terms is empty
+            return NO;
+        }
+    }
+    return YES;
 }
 
-- (void)didReceiveMemoryWarning
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if ([segue.identifier isEqualToString:@"SearchSounds"]) {
+        if ([segue.destinationViewController isKindOfClass:[SearchResultsTVC class]]) {
+            SearchResultsTVC *tsvc = (SearchResultsTVC *)segue.destinationViewController;
+            NSString *query = [NSString stringWithFormat:@"%@", self.inputBox.text];
+            tsvc.queryTerms = query;
+        }
+    }
 }
+
 
 @end

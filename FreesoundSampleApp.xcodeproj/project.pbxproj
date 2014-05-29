@@ -22,6 +22,8 @@
 		C61455CE1937836000F69762 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C61455CC1937836000F69762 /* InfoPlist.strings */; };
 		C61455D01937836000F69762 /* FreesoundSampleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455CF1937836000F69762 /* FreesoundSampleAppTests.m */; };
 		C61455E4193783EC00F69762 /* Freesound-iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455E1193783EC00F69762 /* Freesound-iOS.m */; };
+		C61455E71937853300F69762 /* SoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455E61937853300F69762 /* SoundViewController.m */; };
+		C61455EC1937856300F69762 /* SearchResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455E91937856300F69762 /* SearchResultsTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,10 @@
 		C61455E1193783EC00F69762 /* Freesound-iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Freesound-iOS.m"; sourceTree = "<group>"; };
 		C61455E2193783EC00F69762 /* FreesoundAPIKey.example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreesoundAPIKey.example.h; sourceTree = "<group>"; };
 		C61455E3193783EC00F69762 /* FreesoundAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreesoundAPIKey.h; sourceTree = "<group>"; };
+		C61455E51937853300F69762 /* SoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundViewController.h; sourceTree = "<group>"; };
+		C61455E61937853300F69762 /* SoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundViewController.m; sourceTree = "<group>"; };
+		C61455E81937856300F69762 /* SearchResultsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsTVC.h; sourceTree = "<group>"; };
+		C61455E91937856300F69762 /* SearchResultsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,13 +123,14 @@
 		C61455AA1937836000F69762 /* FreesoundSampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				C61455DF193783EC00F69762 /* Freesound-iOS */,
-				C61455B31937836000F69762 /* FreesoundSampleAppAppDelegate.h */,
-				C61455B41937836000F69762 /* FreesoundSampleAppAppDelegate.m */,
 				C61455B61937836000F69762 /* Main.storyboard */,
+				C61455DF193783EC00F69762 /* Freesound-iOS */,
+				C61455E81937856300F69762 /* SearchResultsTVC.h */,
+				C61455E91937856300F69762 /* SearchResultsTVC.m */,
+				C61455E51937853300F69762 /* SoundViewController.h */,
+				C61455E61937853300F69762 /* SoundViewController.m */,
 				C61455B91937836000F69762 /* FreesoundSampleAppViewController.h */,
 				C61455BA1937836000F69762 /* FreesoundSampleAppViewController.m */,
-				C61455BC1937836000F69762 /* Images.xcassets */,
 				C61455AB1937836000F69762 /* Supporting Files */,
 			);
 			path = FreesoundSampleApp;
@@ -132,6 +139,9 @@
 		C61455AB1937836000F69762 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C61455BC1937836000F69762 /* Images.xcassets */,
+				C61455B31937836000F69762 /* FreesoundSampleAppAppDelegate.h */,
+				C61455B41937836000F69762 /* FreesoundSampleAppAppDelegate.m */,
 				C61455AC1937836000F69762 /* FreesoundSampleApp-Info.plist */,
 				C61455AD1937836000F69762 /* InfoPlist.strings */,
 				C61455B01937836000F69762 /* main.m */,
@@ -268,9 +278,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C61455BB1937836000F69762 /* FreesoundSampleAppViewController.m in Sources */,
+				C61455E71937853300F69762 /* SoundViewController.m in Sources */,
 				C61455E4193783EC00F69762 /* Freesound-iOS.m in Sources */,
 				C61455B51937836000F69762 /* FreesoundSampleAppAppDelegate.m in Sources */,
 				C61455B11937836000F69762 /* main.m in Sources */,
+				C61455EC1937856300F69762 /* SearchResultsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
