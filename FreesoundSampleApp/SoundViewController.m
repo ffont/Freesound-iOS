@@ -7,6 +7,8 @@
 //
 
 #import "SoundViewController.h"
+#import "SearchResultsTVC.h"
+#import "Freesound-iOS.h"
 #import <AVFoundation/AVPlayer.h>
 #import <AVFoundation/AVAsset.h>
 #import <AVFoundation/AVPlayerItem.h>
@@ -43,10 +45,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
         //[self.player addObserver:self forKeyPath:@"status" options:0 context:nil];
         [self.player.currentItem addObserver:self forKeyPath:@"status" options:0 context:nil];
-        Float64 duration  =  CMTimeGetSeconds(self.player.currentItem.asset.duration); // Need to get duration from asset instead of currentItem, currentItem returns nan (?)
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.timeLabel setText:[NSString stringWithFormat:@"-%@",[self secondsToFormattedTimeString:duration]]];
-        });
+        
         
         // Load waveform
         [self loadImage];
@@ -63,6 +62,8 @@
     if (object == self.player.currentItem && [keyPath isEqualToString:@"status"]) {
         if (self.player.currentItem.status == AVPlayerItemStatusReadyToPlay) {
             [self.playButton setEnabled:YES];
+            Float64 duration  =  CMTimeGetSeconds(self.player.currentItem.duration);
+            [self.timeLabel setText:[NSString stringWithFormat:@"-%@",[self secondsToFormattedTimeString:duration]]];
         } else if (self.player.currentItem.status == AVPlayerStatusFailed) {
             NSLog(@"An error occurred while loading audio file into AVPlayer.");
         }
@@ -144,6 +145,20 @@
     NSUInteger dSeconds = floor((int)floor(timeInSeconds) % 3600 % 60);
     NSUInteger dMilliSeconds = 1000 * (timeInSeconds - floor(timeInSeconds));
     return [NSString stringWithFormat:@"%02i:%02i.%.03i", dMinutes, dSeconds, dMilliSeconds];
+}
+
+
+# pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"SearchSimilarSounds"]) {
+        if ([segue.destinationViewController isKindOfClass:[SearchResultsTVC class]]) {
+            SearchResultsTVC *tsvc = (SearchResultsTVC *)segue.destinationViewController;
+            NSURL *url = [FreesoundFetcher URLforSimilarSoundsOfSoundWithId:[self.sound_info valueForKeyPath:@"id"]];
+            tsvc.urlToRetrieve = url;
+        }
+    }
 }
 
 

@@ -11,6 +11,6 @@
 @interface SearchResultsTVC : UITableViewController
 
 @property (nonatomic, strong) NSArray *sounds;
-@property (strong, nonatomic) NSString *queryTerms;
+@property (strong, nonatomic) NSURL *urlToRetrieve;
 
 @end

@@ -9,20 +9,20 @@
 #import "FreesoundAPIKey.h"
 
 # define FREESOUND_BASE_URL @"http://www.freesound.org/apiv2/"
-# define TEXT_SEARCH_URL @"search/text/"
-# define CONTENT_SEARCH_URL @"search/content/"
-# define COMBINED_SEARCH_URL @"search/combined/"
-# define SOUND_URL @"sounds/%i/" // %@ -> sound id
-# define SOUND_ANALYSIS_URL @"sounds/%i/analysis/" // %@ -> sound id
-# define SOUND_SIMILAR_SOUNDS_URL @"sounds/%i/similar/" // %@ -> sound id
-# define SOUND_COMMENTS_URL @"sounds/%i/comments/" // %@ -> sound id
-# define PACK_URL @"packs/%i/" // %@ -> pack id
-# define PACK_SOUNDS_URL @"packs/%i/sounds/" // %@ -> pack id
-# define USER_URL @"users/%@/" // %@ -> username
-# define USER_SOUNDS_URL @"users/%@/sounds/" // %@ -> username
-# define USER_PACKS_URL @"users/%@/packs/" // %@ -> username
-# define USER_BOOKMARK_CATEGORIES_URL @"users/%@/bookmark_categories/" // %@ -> username
-# define USER_BOOKMARK_CATEGORY_SOUNDS_URL @"users/%@/bookmark_categories/%i/sounds/" // %@ -> username, %@ -> bookmark_category_id
+# define TEXT_SEARCH_URL @"search/text/?"
+# define CONTENT_SEARCH_URL @"search/content/?"
+# define COMBINED_SEARCH_URL @"search/combined/?"
+# define SOUND_URL @"sounds/%@/?" // %@ -> sound id
+# define SOUND_ANALYSIS_URL @"sounds/%@/analysis/?" // %@ -> sound id
+# define SOUND_SIMILAR_SOUNDS_URL @"sounds/%@/similar/?" // %@ -> sound id
+# define SOUND_COMMENTS_URL @"sounds/%@/comments/?" // %@ -> sound id
+# define PACK_URL @"packs/%@/?" // %@ -> pack id
+# define PACK_SOUNDS_URL @"packs/%@/sounds/?" // %@ -> pack id
+# define USER_URL @"users/%@/?" // %@ -> username
+# define USER_SOUNDS_URL @"users/%@/sounds/?" // %@ -> username
+# define USER_PACKS_URL @"users/%@/packs/?" // %@ -> username
+# define USER_BOOKMARK_CATEGORIES_URL @"users/%@/bookmark_categories/?" // %@ -> username
+# define USER_BOOKMARK_CATEGORY_SOUNDS_URL @"users/%@/bookmark_categories/%i/sounds/?" // %@ -> username, %@ -> bookmark_category_id
 
 @interface FreesoundFetcher : NSObject
 
@@ -32,14 +32,14 @@
 + (NSURL *)URLforCombinedSearchWithParameters:(NSDictionary *)parameters;
 
 // Sound urls
-+ (NSURL *)URLforSoundWithId:(NSInteger)sound_id;
-+ (NSURL *)URLforAnalysisOfSoundWithSoundId:(NSInteger)sound_id;
-+ (NSURL *)URLforSimilarSoundsOfSoundWithId:(NSInteger)sound_id;
-+ (NSURL *)URLforCommentsOfSoundWithId:(NSInteger)sound_id;
++ (NSURL *)URLforSoundWithId:(NSString *)sound_id;
++ (NSURL *)URLforAnalysisOfSoundWithSoundId:(NSString *)sound_id;
++ (NSURL *)URLforSimilarSoundsOfSoundWithId:(NSString *)sound_id;
++ (NSURL *)URLforCommentsOfSoundWithId:(NSString *)sound_id;
 
 // Pack urls
-+ (NSURL *)URLforPackWithId:(NSInteger)pack_id;
-+ (NSURL *)URLforSoundsOfPackWithId:(NSInteger)pack_id;
++ (NSURL *)URLforPackWithId:(NSString *)pack_id;
++ (NSURL *)URLforSoundsOfPackWithId:(NSString *)pack_id;
 
 // User urls
 + (NSURL *)URLforUserWithUsername:(NSString *)username;

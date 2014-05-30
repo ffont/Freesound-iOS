@@ -16,7 +16,7 @@
 {
     //  "parameters" must be a dictionary with text search parameters as defined in Freesound API docummentation (www.freesound.org/docs/api/resources_apiv2.html#text-search)
     //  Both keys and values of the dictionary must be of the class NSString
-    NSString *url = [NSString stringWithFormat:@"%@?%@", TEXT_SEARCH_URL, [self serializeParameterDictionary:parameters]];
+    NSString *url = [NSString stringWithFormat:@"%@%@", TEXT_SEARCH_URL, [self serializeParameterDictionary:parameters]];
     return [self prepareURL:url];
 }
 
@@ -24,7 +24,7 @@
 {
     //  "parameters" must be a dictionary with content search parameters as defined in Freesound API docummentation (www.freesound.org/docs/api/resources_apiv2.html#content-search)
     //  Both keys and values of the dictionary must be of the class NSString
-    NSString *url = [NSString stringWithFormat:@"%@?%@", CONTENT_SEARCH_URL, [self serializeParameterDictionary:parameters]];
+    NSString *url = [NSString stringWithFormat:@"%@%@", CONTENT_SEARCH_URL, [self serializeParameterDictionary:parameters]];
     return [self prepareURL:url];
 }
 
@@ -32,32 +32,32 @@
 {
     //  "parameters" must be a dictionary with combined search parameters as defined in Freesound API docummentation (www.freesound.org/docs/api/resources_apiv2.html#combined-search)
     //  Both keys and values of the dictionary must be of the class NSString
-    NSString *url = [NSString stringWithFormat:@"%@?%@", COMBINED_SEARCH_URL, [self serializeParameterDictionary:parameters]];
+    NSString *url = [NSString stringWithFormat:@"%@%@", COMBINED_SEARCH_URL, [self serializeParameterDictionary:parameters]];
     return [self prepareURL:url];
 }
 
 
 # pragma mark - Sound resources
 
-+ (NSURL *)URLforSoundWithId:(NSInteger)sound_id
++ (NSURL *)URLforSoundWithId:(NSString *)sound_id
 {
     NSString *url = [NSString stringWithFormat:SOUND_URL, sound_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforAnalysisOfSoundWithSoundId:(NSInteger)sound_id
++ (NSURL *)URLforAnalysisOfSoundWithSoundId:(NSString *)sound_id
 {
     NSString *url = [NSString stringWithFormat:SOUND_ANALYSIS_URL, sound_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforSimilarSoundsOfSoundWithId:(NSInteger)sound_id
++ (NSURL *)URLforSimilarSoundsOfSoundWithId:(NSString *)sound_id
 {
     NSString *url = [NSString stringWithFormat:SOUND_SIMILAR_SOUNDS_URL, sound_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforCommentsOfSoundWithId:(NSInteger)sound_id
++ (NSURL *)URLforCommentsOfSoundWithId:(NSString *)sound_id
 {
     NSString *url = [NSString stringWithFormat:SOUND_COMMENTS_URL, sound_id];
     return [self prepareURL:url];
@@ -66,13 +66,13 @@
 
 # pragma mark - Pack resources
 
-+ (NSURL *)URLforPackWithId:(NSInteger)pack_id
++ (NSURL *)URLforPackWithId:(NSString *)pack_id
 {
     NSString *url = [NSString stringWithFormat:PACK_URL, pack_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforSoundsOfPackWithId:(NSInteger)pack_id
++ (NSURL *)URLforSoundsOfPackWithId:(NSString *)pack_id
 {
     NSString *url = [NSString stringWithFormat:PACK_SOUNDS_URL, pack_id];
     return [self prepareURL:url];

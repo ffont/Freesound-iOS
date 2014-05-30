@@ -19,7 +19,7 @@
     UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [activityIndicator startAnimating];
     self.navigationItem.titleView = activityIndicator;
-    [self searchSounds];
+    [self retrieveSounds];
 }
 
 
@@ -80,19 +80,10 @@
 
 # pragma mark - Fetch sounds
 
-- (void)searchSounds
+- (void)retrieveSounds
 {
-    NSDictionary *search_parameters = @{
-        @"query" : self.queryTerms,
-        @"fields": @"name,username,description,previews,images",
-        @"group_by_pack": @"1",
-        @"sort": @"created_desc",
-        @"page_size": @"50",
-    };
-    
-    NSURL *url = [FreesoundFetcher URLforTextSearchWithParameters:search_parameters];
-    NSLog(@"Fetching freesound url: %@", [url absoluteString]);
-    [FreesoundFetcher fetchURL:url withCompletionHandler:^(NSDictionary *results){
+    NSLog(@"Fetching freesound url: %@", [self.urlToRetrieve absoluteString]);
+    [FreesoundFetcher fetchURL:self.urlToRetrieve withCompletionHandler:^(NSDictionary *results){
         self.navigationItem.titleView = nil;
         self.sounds = results[@"results"];
     }];

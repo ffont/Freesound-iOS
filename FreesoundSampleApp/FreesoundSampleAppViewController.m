@@ -8,6 +8,7 @@
 
 #import "FreesoundSampleAppViewController.h"
 #import "SearchResultsTVC.h"
+#import "Freesound-iOS.h"
 
 @interface FreesoundSampleAppViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *inputBox;
@@ -31,8 +32,15 @@
     if ([segue.identifier isEqualToString:@"SearchSounds"]) {
         if ([segue.destinationViewController isKindOfClass:[SearchResultsTVC class]]) {
             SearchResultsTVC *tsvc = (SearchResultsTVC *)segue.destinationViewController;
-            NSString *query = [NSString stringWithFormat:@"%@", self.inputBox.text];
-            tsvc.queryTerms = query;
+            NSDictionary *search_parameters = @{
+                @"query" : [NSString stringWithFormat:@"%@", self.inputBox.text],
+                @"fields": @"id,name,username,description,previews,images",
+                @"group_by_pack": @"1",
+                @"sort": @"created_desc",
+                @"page_size": @"50",
+            };
+            NSURL *url = [FreesoundFetcher URLforTextSearchWithParameters:search_parameters];
+            tsvc.urlToRetrieve = url;
         }
     }
 }
