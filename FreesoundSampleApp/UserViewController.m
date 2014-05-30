@@ -29,6 +29,7 @@
     [FreesoundFetcher fetchURL:url withCompletionHandler:^(NSDictionary *results){
         if (results){
             self.user_info = results;
+            NSLog(@"%@", [results description]);
             [self.activityIndicator setHidden:YES];
             [self displayUserInfo];
         }
@@ -44,7 +45,10 @@
 
 - (void)displayUserInfo
 {
-    self.userDescription.text = [self.user_info objectForKey:@"about"];
+    NSString *about_text = [self.user_info objectForKey:@"about"];
+    if (about_text != (id)[NSNull null]){
+        self.userDescription.text = [self.user_info objectForKey:@"about"];
+    }
     self.numberOfSoundsLabel.text = [NSString stringWithFormat:@"Number of sounds: %@", [self.user_info objectForKey:@"num_sounds"]];
     dispatch_queue_t fetchQ = dispatch_queue_create("user avatar", NULL);
     dispatch_async(fetchQ, ^{
@@ -57,7 +61,7 @@
 -(void)loadImage
 {
     NSString *avatar_url = [self.user_info valueForKeyPath:@"avatar.Large"];
-    if (avatar_url) {
+    if (avatar_url != (id)[NSNull null]){
         NSURL *imgURL=[NSURL URLWithString:avatar_url];
         NSData *imgData=[NSData dataWithContentsOfURL:imgURL];
         dispatch_async(dispatch_get_main_queue(), ^{
