@@ -33,6 +33,11 @@
 // User urls
 + (NSURL *)URLforUserWithUsername:(NSString *)username;
 
+// Pagination utils
++ (NSURL *)URLforNextPage:(NSDictionary *)results; // Can be used in any paginated response
++ (NSURL *)URLforPreviousPage:(NSDictionary *)results; // Can be used in any paginated response
++ (NSURL *)URLforMoreresults:(NSDictionary *)results; // Only applies to combined search results (http://www.freesound.org/docs/api/resources_apiv2.html#combined-search)
+
 // Other/utils
 + (NSDictionary *)fetchURL:(NSURL *)url;
 + (void)fetchURL:(NSURL *)url withCompletionHandler:(void(^)(NSDictionary *results))handler;

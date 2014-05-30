@@ -64,6 +64,31 @@
 }
 
 
+# pragma mark - Pagination utils
+
++ (NSURL *)URLforNextPage:(NSDictionary *)results
+{
+    //  Takes the "next" field from "results" dictionary and returns it as a prepared NSURL
+    //  Can be used in any paginated response (search results, sounds by user/pack, ...)
+    return [self prepareURL:results[@"next"]];
+    
+}
+
++ (NSURL *)URLforPreviousPage:(NSDictionary *)results
+{
+    //  Takes the "previous" field from "results" dictionary and returns it as a prepared NSURL
+    //  Can be used in any paginated response (search results, sounds by user/pack, ...)
+    return [self prepareURL:results[@"previous"]];
+}
+
++ (NSURL *)URLforMoreresults:(NSDictionary *)results
+{
+    //  Takes the "more" field from "results" dictionary and returns it as a prepared NSURL
+    //  Only applies to combined search results (http://www.freesound.org/docs/api/resources_apiv2.html#combined-search)
+    return [self prepareURL:results[@"more"]];
+}
+
+
 # pragma mark - Other/utils functions
 
 + (NSURL *)prepareURL:(NSString *) url
