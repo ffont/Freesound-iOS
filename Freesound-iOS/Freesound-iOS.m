@@ -39,25 +39,25 @@
 
 # pragma mark - Sound resources
 
-+ (NSURL *)URLforSoundWithId:(NSString *)sound_id
++ (NSURL *)URLforSoundWithId:(NSNumber *)sound_id
 {
     NSString *url = [NSString stringWithFormat:SOUND_URL, sound_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforAnalysisOfSoundWithSoundId:(NSString *)sound_id
++ (NSURL *)URLforAnalysisOfSoundWithSoundId:(NSNumber *)sound_id
 {
     NSString *url = [NSString stringWithFormat:SOUND_ANALYSIS_URL, sound_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforSimilarSoundsOfSoundWithId:(NSString *)sound_id
++ (NSURL *)URLforSimilarSoundsOfSoundWithId:(NSNumber *)sound_id
 {
     NSString *url = [NSString stringWithFormat:SOUND_SIMILAR_SOUNDS_URL, sound_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforCommentsOfSoundWithId:(NSString *)sound_id
++ (NSURL *)URLforCommentsOfSoundWithId:(NSNumber *)sound_id
 {
     NSString *url = [NSString stringWithFormat:SOUND_COMMENTS_URL, sound_id];
     return [self prepareURL:url];
@@ -66,13 +66,13 @@
 
 # pragma mark - Pack resources
 
-+ (NSURL *)URLforPackWithId:(NSString *)pack_id
++ (NSURL *)URLforPackWithId:(NSNumber *)pack_id
 {
     NSString *url = [NSString stringWithFormat:PACK_URL, pack_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforSoundsOfPackWithId:(NSString *)pack_id
++ (NSURL *)URLforSoundsOfPackWithId:(NSNumber *)pack_id
 {
     NSString *url = [NSString stringWithFormat:PACK_SOUNDS_URL, pack_id];
     return [self prepareURL:url];

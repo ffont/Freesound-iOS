@@ -32,14 +32,14 @@
 + (NSURL *)URLforCombinedSearchWithParameters:(NSDictionary *)parameters;
 
 // Sound urls
-+ (NSURL *)URLforSoundWithId:(NSString *)sound_id;
-+ (NSURL *)URLforAnalysisOfSoundWithSoundId:(NSString *)sound_id;
-+ (NSURL *)URLforSimilarSoundsOfSoundWithId:(NSString *)sound_id;
-+ (NSURL *)URLforCommentsOfSoundWithId:(NSString *)sound_id;
++ (NSURL *)URLforSoundWithId:(NSNumber *)sound_id;
++ (NSURL *)URLforAnalysisOfSoundWithSoundId:(NSNumber *)sound_id;
++ (NSURL *)URLforSimilarSoundsOfSoundWithId:(NSNumber *)sound_id;
++ (NSURL *)URLforCommentsOfSoundWithId:(NSNumber *)sound_id;
 
 // Pack urls
-+ (NSURL *)URLforPackWithId:(NSString *)pack_id;
-+ (NSURL *)URLforSoundsOfPackWithId:(NSString *)pack_id;
++ (NSURL *)URLforPackWithId:(NSNumber *)pack_id;
++ (NSURL *)URLforSoundsOfPackWithId:(NSNumber *)pack_id;
 
 // User urls
 + (NSURL *)URLforUserWithUsername:(NSString *)username;

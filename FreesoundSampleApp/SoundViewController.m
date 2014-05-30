@@ -155,7 +155,7 @@
     if ([segue.identifier isEqualToString:@"SearchSimilarSounds"]) {
         if ([segue.destinationViewController isKindOfClass:[SearchResultsTVC class]]) {
             SearchResultsTVC *tsvc = (SearchResultsTVC *)segue.destinationViewController;
-            NSURL *url = [FreesoundFetcher URLforSimilarSoundsOfSoundWithId:[self.sound_info valueForKeyPath:@"id"]];
+            NSURL *url = [FreesoundFetcher URLforSimilarSoundsOfSoundWithId:[self.sound_info objectForKey:@"id"]];
             tsvc.urlToRetrieve = url;
         }
     }
