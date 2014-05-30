@@ -10,28 +10,6 @@
 @implementation FreesoundFetcher
 
 
-# pragma mark - Utils
-
-+ (NSURL *)prepareURL:(NSString *) url
-{
-    //  Add base url, "token" parameter, "format" parameter and encodes "url"
-    return [NSURL URLWithString:[[NSString stringWithFormat:@"%@%@&token=%@&format=%@", FREESOUND_BASE_URL, url, FreesoundAPIKey, PreferredFormat] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-}
-
-+ (NSString *)serializeParameterDictionary:(NSDictionary *) parameters
-{
-    //  Serializes the keys and values of an NSDictionary by converting them into a string of url parameters (&key1=value1&key2=value2...)
-    //  Keys and values are only added to the serialized string if they are NSStrings
-    NSString *serialized_parameters = @"";
-    for(id key in parameters){
-        if ([key isKindOfClass:[NSString class]] && [[parameters objectForKey:key] isKindOfClass:[NSString class]]){
-            serialized_parameters = [serialized_parameters stringByAppendingString:[NSString stringWithFormat:@"&%@=%@", key, [parameters objectForKey:key]]];
-        }
-    }
-    return serialized_parameters;
-}
-
-
 # pragma mark - Search resources
 
 + (NSURL *)URLforTextSearchWithParameters:(NSDictionary *)parameters
@@ -85,6 +63,79 @@
     return [self prepareURL:url];
 }
 
+
+# pragma mark - Other/utils functions
+
++ (NSURL *)prepareURL:(NSString *) url
+{
+    //  Add base url, "token" parameter, "format" parameter and encodes "url"
+    return [NSURL URLWithString:[[NSString stringWithFormat:@"%@%@&token=%@&format=json", FREESOUND_BASE_URL, url, FreesoundAPIKey] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+}
+
++ (NSString *)serializeParameterDictionary:(NSDictionary *) parameters
+{
+    //  Serializes the keys and values of an NSDictionary by converting them into a string of url parameters (&key1=value1&key2=value2...)
+    //  Keys and values are only added to the serialized string if they are NSStrings
+    NSString *serialized_parameters = @"";
+    for(id key in parameters){
+        if ([key isKindOfClass:[NSString class]] && [[parameters objectForKey:key] isKindOfClass:[NSString class]]){
+            serialized_parameters = [serialized_parameters stringByAppendingString:[NSString stringWithFormat:@"&%@=%@", key, [parameters objectForKey:key]]];
+        }
+    }
+    return serialized_parameters;
+}
+
++ (NSDictionary *)fetchURL:(NSURL *)url
+{
+    //  Takes a NSURL, fetches the json result and returns it as an NSDictionary
+    //  NOTE: this function performs the fetching in the main queue, thus it is going to block your UI. You probably don't want to use this funciton ;)
+    NSData *jsonResults = [NSData dataWithContentsOfURL:url];
+    if (jsonResults){
+        NSDictionary *results = [NSJSONSerialization JSONObjectWithData:jsonResults
+                                                                options:0
+                                                                  error:NULL];
+        return results;
+    }
+    return nil;
+}
+
++ (void)fetchURL:(NSURL *)url withCompletionHandler:(void(^)(NSDictionary *results))handler
+{
+    //  Takes a NSURL and fetches the json result
+    //  Fetching is performed in a "freesound fetcher" queue, thus not blocking your main thread and UI
+    //  On completion, the handler block passed as a parameter is executed in the main queue (dispatch_get_main_queue())
+    dispatch_queue_t fetchQ = dispatch_queue_create("freesound fetcher", NULL);
+    dispatch_async(fetchQ, ^{
+        NSData *jsonResults = [NSData dataWithContentsOfURL:url];
+        if (jsonResults){
+            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:jsonResults
+                                                                    options:0
+                                                                      error:NULL];
+            dispatch_async(dispatch_get_main_queue(), ^{handler(result);});
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{handler(nil);});
+        }
+    });
+}
+
++ (void)fetchURL:(NSURL *)url withCompletionHandler:(void(^)(NSDictionary *results))handler onQueue:(dispatch_queue_t)queue;
+{
+    //  Takes a NSURL and fetches the json result
+    //  Fetching is performed in a "freesound fetcher" queue, thus not blocking your main thread and UI
+    //  On completion, the handler block passed as a parameter is executed in the queue passed as parameter
+    dispatch_queue_t fetchQ = dispatch_queue_create("freesound fetcher", NULL);
+    dispatch_async(fetchQ, ^{
+        NSData *jsonResults = [NSData dataWithContentsOfURL:url];
+        if (jsonResults){
+            NSDictionary *result = [NSJSONSerialization JSONObjectWithData:jsonResults
+                                                                   options:0
+                                                                     error:NULL];
+            dispatch_async(queue, ^{handler(result);});
+        } else {
+            dispatch_async(queue, ^{handler(nil);});
+        }
+    });
+}
 
 
 @end

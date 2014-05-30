@@ -1,6 +1,6 @@
 //
-//  FreesoundSoundsTVC.m
-//  FreesoundFetchTest
+//  SearchResultsTVC.m
+//  FreesoundSampleApp
 //
 //  Created by Frederic Font Corbera on 22/05/14.
 //  Copyright (c) 2014 Frederic Font Corbera. All rights reserved.
@@ -17,7 +17,7 @@
 {
     [super viewDidLoad];
     NSLog(@"%@", [NSString stringWithFormat:@"Query: %@", [self queryTerms]]);
-    [self fetchSounds];
+    [self searchSounds];
 }
 
 
@@ -78,7 +78,7 @@
 
 # pragma mark - Fetch sounds
 
-- (void)fetchSounds
+- (void)searchSounds
 {
     [self.refreshControl beginRefreshing];
     NSDictionary *search_parameters = @{
@@ -91,23 +91,10 @@
     
     NSURL *url = [FreesoundFetcher URLforTextSearchWithParameters:search_parameters];
     NSLog(@"Fetching freesound url: %@", [url absoluteString]);
-    dispatch_queue_t fetchQ = dispatch_queue_create("freesound fetcher", NULL);
-    dispatch_async(fetchQ, ^{
-        NSData *jsonResults = [NSData dataWithContentsOfURL:url];
-        if (jsonResults){
-            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:jsonResults
-                                                                    options:0
-                                                                      error:NULL];
-            NSArray *sounds = results[@"results"];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"Got results!");
-                [self.refreshControl endRefreshing];
-                self.sounds = sounds;
-            });
-        } else {
-            NSLog(@"No data could be fetched form Freesound");
-        }
-    });
+    [FreesoundFetcher fetchURL:url withCompletionHandler:^(NSDictionary *results){
+        [self.refreshControl endRefreshing];
+        self.sounds = results[@"results"];
+    }];
 }
 
 

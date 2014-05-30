@@ -16,19 +16,29 @@
 # define SOUND_URL @"sounds/%@/" // %@ -> sound id
 # define PACK_URL @"packs/%@/" // %@ -> pack id
 
-# define PreferredFormat @"json"
-
 
 @interface FreesoundFetcher : NSObject
 
+// Search urls
 + (NSURL *)URLforTextSearchWithParameters:(NSDictionary *)parameters;
 + (NSURL *)URLforContentSearchWithParameters:(NSDictionary *)parameters;
 + (NSURL *)URLforCombinedSearchWithParameters:(NSDictionary *)parameters;
 
+// Sound urls
 + (NSURL *)URLforSoundWithId:(NSInteger)sound_id;
 
+// Pack urls
 + (NSURL *)URLforPackWithId:(NSInteger)pack_id;
 
+// User urls
 + (NSURL *)URLforUserWithUsername:(NSString *)username;
+
+// Other/utils
++ (NSDictionary *)fetchURL:(NSURL *)url;
++ (void)fetchURL:(NSURL *)url withCompletionHandler:(void(^)(NSDictionary *results))handler;
++ (void)fetchURL:(NSURL *)url withCompletionHandler:(void(^)(NSDictionary *results))handler onQueue:(dispatch_queue_t)queue;
+
+
+
 
 @end
