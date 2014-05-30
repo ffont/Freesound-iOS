@@ -14,7 +14,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SoundCell" textLabel="M0g-Ig-BUI" detailTextLabel="DOK-59-LSD" style="IBUITableViewCellStyleValue1" id="x0x-ON-z1P">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0x-ON-z1P" id="Cfa-gX-kU6">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -37,7 +37,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="nHP-es-ygW" kind="push" identifier="DisplaySound" id="TKv-xK-hsc"/>
+                                    <segue destination="9Et-ju-Tca" kind="push" identifier="DisplaySound" id="vlz-e5-bvC"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -52,7 +52,7 @@
             </objects>
             <point key="canvasLocation" x="1050" y="110"/>
         </scene>
-        <!--Sound View Controller - Sound Instance-->
+        <!--Sound View Controller - Sound information-->
         <scene sceneID="F1Z-Us-08G">
             <objects>
                 <viewController id="nHP-es-ygW" customClass="SoundViewController" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBT-X3-9x2">
-                                <rect key="frame" x="20" y="257" width="280" height="165"/>
+                                <rect key="frame" x="20" y="252" width="280" height="173"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -109,23 +109,16 @@
                                 <rect key="frame" x="150" y="137" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68P-ym-slj">
-                                <rect key="frame" x="79" y="430" width="151" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Search similar sounds">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="xLx-kt-Ui4" kind="push" identifier="SearchSimilarSounds" id="ooP-Vd-pDG"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sound Instance" id="vRD-BA-sU5"/>
+                    <tabBarItem key="tabBarItem" title="Sound" id="3G8-OA-8VX">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-18"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Sound information" id="vRD-BA-sU5"/>
                     <connections>
                         <outlet property="activityIndicator" destination="o2J-Wk-xDj" id="qUr-3J-gt3"/>
-                        <outlet property="description" destination="JBT-X3-9x2" id="yLD-U6-yoo"/>
+                        <outlet property="description" destination="JBT-X3-9x2" id="tJE-pL-uSy"/>
                         <outlet property="image" destination="G9k-Gd-MMx" id="KbX-0W-Hoy"/>
                         <outlet property="playButton" destination="nsp-5U-0dH" id="N4a-qB-Hk0"/>
                         <outlet property="stopButton" destination="NkV-yz-eso" id="ZLW-Dv-LsJ"/>
@@ -134,9 +127,102 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPY-e0-DMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505" y="110"/>
+            <point key="canvasLocation" x="2056" y="-548"/>
         </scene>
-        <!--Freesound Sample App View Controller - Freesound search-->
+        <!--User View Controller - User information-->
+        <scene sceneID="hsc-Da-PTx">
+            <objects>
+                <viewController id="GDr-WG-e7i" customClass="UserViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="efI-vO-mEZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Svc-00-6wT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zl0-TW-nTL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="an3-Ee-QOK">
+                                <rect key="frame" x="150" y="230" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="at6-In-Nsw">
+                                <rect key="frame" x="124" y="78" width="72" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80353156889999999" green="0.80353156889999999" blue="0.80353156889999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of sounds: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Biw-T4-vpH">
+                                <rect key="frame" x="20" y="170" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apj-Ge-plF">
+                                <rect key="frame" x="20" y="206" width="280" height="217"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="User info" id="2WG-7j-5EH">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-18"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="User information" id="Ro9-DX-7Yd"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="an3-Ee-QOK" id="CdZ-Wt-Dpo"/>
+                        <outlet property="numberOfSoundsLabel" destination="Biw-T4-vpH" id="tcf-Ts-DVT"/>
+                        <outlet property="userAvatarView" destination="at6-In-Nsw" id="Zfr-CT-veV"/>
+                        <outlet property="userDescription" destination="apj-Ge-plF" id="Azn-Qe-eOs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="riC-ur-eWR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2056" y="110"/>
+        </scene>
+        <!--Sound Analysis View Controller - Analysis-->
+        <scene sceneID="080-m0-jbV">
+            <objects>
+                <viewController id="PvF-n8-aaC" customClass="SoundAnalysisViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7OY-kb-y7d"/>
+                        <viewControllerLayoutGuide type="bottom" id="PZ2-UY-cJn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9gf-iL-Fw8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hK5-rE-kMF">
+                                <rect key="frame" x="20" y="62" width="280" height="367"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ol9-7R-ZQA">
+                                <rect key="frame" x="150" y="236" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Analysis" id="cM2-0v-0GV">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-18"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Ol9-7R-ZQA" id="5eg-W2-L5h"/>
+                        <outlet property="analysis_text" destination="hK5-rE-kMF" id="eNn-n2-9k1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yho-x3-PfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2056" y="739"/>
+        </scene>
+        <!--Freesound Sample App View Controller - Freesound Sample App-->
         <scene sceneID="c2N-os-cgb">
             <objects>
                 <viewController id="Q2f-FG-4Yl" customClass="FreesoundSampleAppViewController" sceneMemberID="viewController">
@@ -174,7 +260,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Freesound search" id="yqm-eT-4Hn"/>
+                    <navigationItem key="navigationItem" title="Freesound Sample App" id="yqm-eT-4Hn"/>
                     <connections>
                         <outlet property="inputBox" destination="wvU-bp-uNS" id="sN0-Zx-AMB"/>
                     </connections>
@@ -201,13 +287,31 @@
             </objects>
             <point key="canvasLocation" x="88" y="110"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="OPN-w9-7Gb">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="9Et-ju-Tca" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="vbP-jw-m8o"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="EgH-fT-r68">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="nHP-es-ygW" kind="relationship" relationship="viewControllers" id="df8-Rm-A4I"/>
+                        <segue destination="GDr-WG-e7i" kind="relationship" relationship="viewControllers" id="Ip9-N9-IIS"/>
+                        <segue destination="PvF-n8-aaC" kind="relationship" relationship="viewControllers" id="LdC-rK-8XC"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="esU-6C-FCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1505" y="110"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="ooP-Vd-pDG"/>
-    </inferredMetricsTieBreakers>
 </document>

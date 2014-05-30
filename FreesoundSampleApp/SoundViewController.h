@@ -10,7 +10,6 @@
 
 @interface SoundViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextView *description;
 @property (weak, nonatomic) NSDictionary *sound_info;
 
 @end

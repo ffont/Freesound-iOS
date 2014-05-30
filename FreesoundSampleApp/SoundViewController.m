@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UITextView *description;
 @end
 
 
@@ -50,6 +51,11 @@
         // Load waveform
         [self loadImage];
     });
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tabBarController setTitle:[self.sound_info objectForKey:@"name"]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

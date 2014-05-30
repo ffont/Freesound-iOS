@@ -9,6 +9,8 @@
 #import "SearchResultsTVC.h"
 #import "Freesound-iOS.h"
 #import "SoundViewController.h"
+#import "UserViewController.h"
+#import "SoundAnalysisViewController.h"
 
 @implementation SearchResultsTVC
 
@@ -58,8 +60,20 @@
 
 - (void)prepareSoundViewController:(SoundViewController *)svc toDisplaySound:(NSDictionary *)sound
 {
-    svc.title = [sound valueForKeyPath:@"name"];
     svc.sound_info = sound;
+}
+
+- (void)prepareUserViewController:(UserViewController *)uvc toDisplayUserWithUsername:(NSString *)username
+{
+    //  Here we do not pass user information because we only have the username
+    //  Rest of information will be fetched when the view is accessed
+    uvc.username = username;
+}
+
+- (void)prepareSoundAnalysisViewController:(SoundAnalysisViewController *)savc toDisplaySoundWithId:(NSNumber *)sound_id
+{
+    //  Here we do not pass full sound information because we only need the id to retrieve analysis
+    savc.sound_id = sound_id;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -68,9 +82,14 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"DisplaySound"]) {
-                if ([segue.destinationViewController isKindOfClass:[SoundViewController class]]) {
-                    [self prepareSoundViewController:segue.destinationViewController
+                if ([segue.destinationViewController isKindOfClass:[UITabBarController class]]) {
+                    UITabBarController* tbc = [segue destinationViewController];
+                    [self prepareSoundViewController:[[tbc customizableViewControllers] objectAtIndex:0]
                                       toDisplaySound:self.sounds[indexPath.row]];
+                    [self prepareUserViewController:[[tbc customizableViewControllers] objectAtIndex:1]
+                          toDisplayUserWithUsername:[self.sounds[indexPath.row] objectForKey:@"username"]];
+                    [self prepareSoundAnalysisViewController:[[tbc customizableViewControllers] objectAtIndex:2]
+                                        toDisplaySoundWithId:[self.sounds[indexPath.row] objectForKey:@"id"]];
                 }
             }
         }

@@ -24,6 +24,8 @@
 		C61455E4193783EC00F69762 /* Freesound-iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455E1193783EC00F69762 /* Freesound-iOS.m */; };
 		C61455E71937853300F69762 /* SoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455E61937853300F69762 /* SoundViewController.m */; };
 		C61455EC1937856300F69762 /* SearchResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455E91937856300F69762 /* SearchResultsTVC.m */; };
+		C6837D241938D4450097853D /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6837D231938D4450097853D /* UserViewController.m */; };
+		C6837D271938DA090097853D /* SoundAnalysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6837D261938DA090097853D /* SoundAnalysisViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,10 @@
 		C61455E61937853300F69762 /* SoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundViewController.m; sourceTree = "<group>"; };
 		C61455E81937856300F69762 /* SearchResultsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsTVC.h; sourceTree = "<group>"; };
 		C61455E91937856300F69762 /* SearchResultsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsTVC.m; sourceTree = "<group>"; };
+		C6837D221938D4450097853D /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		C6837D231938D4450097853D /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		C6837D251938DA090097853D /* SoundAnalysisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundAnalysisViewController.h; sourceTree = "<group>"; };
+		C6837D261938DA090097853D /* SoundAnalysisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundAnalysisViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,10 @@
 				C61455E91937856300F69762 /* SearchResultsTVC.m */,
 				C61455E51937853300F69762 /* SoundViewController.h */,
 				C61455E61937853300F69762 /* SoundViewController.m */,
+				C6837D221938D4450097853D /* UserViewController.h */,
+				C6837D231938D4450097853D /* UserViewController.m */,
+				C6837D251938DA090097853D /* SoundAnalysisViewController.h */,
+				C6837D261938DA090097853D /* SoundAnalysisViewController.m */,
 				C61455B91937836000F69762 /* FreesoundSampleAppViewController.h */,
 				C61455BA1937836000F69762 /* FreesoundSampleAppViewController.m */,
 				C61455AB1937836000F69762 /* Supporting Files */,
@@ -277,9 +287,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6837D241938D4450097853D /* UserViewController.m in Sources */,
 				C61455BB1937836000F69762 /* FreesoundSampleAppViewController.m in Sources */,
 				C61455E71937853300F69762 /* SoundViewController.m in Sources */,
 				C61455E4193783EC00F69762 /* Freesound-iOS.m in Sources */,
+				C6837D271938DA090097853D /* SoundAnalysisViewController.m in Sources */,
 				C61455B51937836000F69762 /* FreesoundSampleAppAppDelegate.m in Sources */,
 				C61455B11937836000F69762 /* main.m in Sources */,
 				C61455EC1937856300F69762 /* SearchResultsTVC.m in Sources */,
@@ -487,6 +499,7 @@
 				C61455D51937836000F69762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C61455D61937836000F69762 /* Build configuration list for PBXNativeTarget "FreesoundSampleAppTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +508,7 @@
 				C61455D81937836000F69762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
