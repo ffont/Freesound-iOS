@@ -16,7 +16,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@", [NSString stringWithFormat:@"Query: %@", [self queryTerms]]);
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [activityIndicator startAnimating];
+    self.navigationItem.titleView = activityIndicator;
     [self searchSounds];
 }
 
@@ -80,7 +82,6 @@
 
 - (void)searchSounds
 {
-    [self.refreshControl beginRefreshing];
     NSDictionary *search_parameters = @{
         @"query" : self.queryTerms,
         @"fields": @"name,username,description,previews,images",
@@ -92,7 +93,7 @@
     NSURL *url = [FreesoundFetcher URLforTextSearchWithParameters:search_parameters];
     NSLog(@"Fetching freesound url: %@", [url absoluteString]);
     [FreesoundFetcher fetchURL:url withCompletionHandler:^(NSDictionary *results){
-        [self.refreshControl endRefreshing];
+        self.navigationItem.titleView = nil;
         self.sounds = results[@"results"];
     }];
 }

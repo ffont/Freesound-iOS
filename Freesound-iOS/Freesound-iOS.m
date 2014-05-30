@@ -41,25 +41,25 @@
 
 + (NSURL *)URLforSoundWithId:(NSInteger)sound_id
 {
-    NSString *url = [NSString stringWithFormat:SOUND_URL, [NSString stringWithFormat:@"%i", sound_id]];
+    NSString *url = [NSString stringWithFormat:SOUND_URL, sound_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforAnalysisForSoundWithSoundId:(NSInteger)sound_id
++ (NSURL *)URLforAnalysisOfSoundWithSoundId:(NSInteger)sound_id
 {
-    NSString *url = [NSString stringWithFormat:SOUND_ANALYSIS_URL, [NSString stringWithFormat:@"%i", sound_id]];
+    NSString *url = [NSString stringWithFormat:SOUND_ANALYSIS_URL, sound_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforSimilarSoundsForSoundWithId:(NSInteger)sound_id
++ (NSURL *)URLforSimilarSoundsOfSoundWithId:(NSInteger)sound_id
 {
-    NSString *url = [NSString stringWithFormat:SOUND_SIMILAR_SOUNDS_URL, [NSString stringWithFormat:@"%i", sound_id]];
+    NSString *url = [NSString stringWithFormat:SOUND_SIMILAR_SOUNDS_URL, sound_id];
     return [self prepareURL:url];
 }
 
-+ (NSURL *)URLforCommentsForSoundWithId:(NSInteger)sound_id
++ (NSURL *)URLforCommentsOfSoundWithId:(NSInteger)sound_id
 {
-    NSString *url = [NSString stringWithFormat:SOUND_COMMENTS_URL, [NSString stringWithFormat:@"%i", sound_id]];
+    NSString *url = [NSString stringWithFormat:SOUND_COMMENTS_URL, sound_id];
     return [self prepareURL:url];
 }
 
@@ -68,16 +68,45 @@
 
 + (NSURL *)URLforPackWithId:(NSInteger)pack_id
 {
-    NSString *url = [NSString stringWithFormat:PACK_URL, [NSString stringWithFormat:@"%i", pack_id]];
+    NSString *url = [NSString stringWithFormat:PACK_URL, pack_id];
     return [self prepareURL:url];
 }
 
++ (NSURL *)URLforSoundsOfPackWithId:(NSInteger)pack_id
+{
+    NSString *url = [NSString stringWithFormat:PACK_SOUNDS_URL, pack_id];
+    return [self prepareURL:url];
+}
 
 # pragma mark - User resources
 
 + (NSURL *)URLforUserWithUsername:(NSString *)username
 {
     NSString *url = [NSString stringWithFormat:USER_URL, username];
+    return [self prepareURL:url];
+}
+
++ (NSURL *)URLforSoundsOfUserWithUsername:(NSString *)username
+{
+    NSString *url = [NSString stringWithFormat:USER_SOUNDS_URL, username];
+    return [self prepareURL:url];
+}
+
++ (NSURL *)URLforPacksOfUserWithUsername:(NSString *)username
+{
+    NSString *url = [NSString stringWithFormat:USER_PACKS_URL, username];
+    return [self prepareURL:url];
+}
+
++ (NSURL *)URLforBookmarkCategoriesOfUserWithUsername:(NSString *)username
+{
+    NSString *url = [NSString stringWithFormat:USER_BOOKMARK_CATEGORIES_URL, username];
+    return [self prepareURL:url];
+}
+
++ (NSURL *)URLforSoundsOfBookmarkCategory:(NSInteger)bookmark_category_id ofUserWithUsername:(NSString *)username
+{
+    NSString *url = [NSString stringWithFormat:USER_BOOKMARK_CATEGORY_SOUNDS_URL, username, bookmark_category_id];
     return [self prepareURL:url];
 }
 
