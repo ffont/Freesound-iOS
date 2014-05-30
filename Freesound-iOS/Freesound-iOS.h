@@ -14,6 +14,9 @@
 # define COMBINED_SEARCH_URL @"search/combined/"
 # define USER_URL @"users/%@/" // %@ -> username
 # define SOUND_URL @"sounds/%@/" // %@ -> sound id
+# define SOUND_ANALYSIS_URL @"sounds/%@/analysis/" // %@ -> sound id
+# define SOUND_SIMILAR_SOUNDS_URL @"sounds/%@/similar/" // %@ -> sound id
+# define SOUND_COMMENTS_URL @"sounds/%@/comments/" // %@ -> sound id
 # define PACK_URL @"packs/%@/" // %@ -> pack id
 
 
@@ -26,6 +29,9 @@
 
 // Sound urls
 + (NSURL *)URLforSoundWithId:(NSInteger)sound_id;
++ (NSURL *)URLforAnalysisForSoundWithSoundId:(NSInteger)sound_id;
++ (NSURL *)URLforSimilarSoundsForSoundWithId:(NSInteger)sound_id;
++ (NSURL *)URLforCommentsForSoundWithId:(NSInteger)sound_id;
 
 // Pack urls
 + (NSURL *)URLforPackWithId:(NSInteger)pack_id;

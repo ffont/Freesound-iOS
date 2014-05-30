@@ -45,6 +45,24 @@
     return [self prepareURL:url];
 }
 
++ (NSURL *)URLforAnalysisForSoundWithSoundId:(NSInteger)sound_id
+{
+    NSString *url = [NSString stringWithFormat:SOUND_ANALYSIS_URL, [NSString stringWithFormat:@"%i", sound_id]];
+    return [self prepareURL:url];
+}
+
++ (NSURL *)URLforSimilarSoundsForSoundWithId:(NSInteger)sound_id
+{
+    NSString *url = [NSString stringWithFormat:SOUND_SIMILAR_SOUNDS_URL, [NSString stringWithFormat:@"%i", sound_id]];
+    return [self prepareURL:url];
+}
+
++ (NSURL *)URLforCommentsForSoundWithId:(NSInteger)sound_id
+{
+    NSString *url = [NSString stringWithFormat:SOUND_COMMENTS_URL, [NSString stringWithFormat:@"%i", sound_id]];
+    return [self prepareURL:url];
+}
+
 
 # pragma mark - Pack resources
 
