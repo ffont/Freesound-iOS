@@ -60,7 +60,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.player pause];
+    [self StopSound];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
