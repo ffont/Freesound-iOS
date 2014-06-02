@@ -27,12 +27,15 @@ After setting up, you can include 'Freesound-iOS.h' in your view controllers and
 Alternatively, the client provides three functions that can handle the request for you and may easy up things in some situations. These functions are:
 
 - "+ (NSDictionary *)fetchURL:(NSURL *)url;" 
+
  Retrieves the contents given by the NSURL* object and return them as an NSDictionary*. This method is synchronous therefore if used as is it will block your current queue (not recommended!).
 
 - "+ (void)fetchURL:(NSURL *)url withCompletionHandler:(void(^)(NSDictionary *results))handler;"
+
  Retrieves the contents given by the NSURL* object performing the request asynchronously (thus non blocking your current queue). Once response is received, the block ('withCompletionHandler') is executed on the main queue. This block has a parameter ('results') that contains an NSDictionary* with the contents of the response.
 
 - "+ (void)fetchURL:(NSURL *)url withCompletionHandler:(void(^)(NSDictionary *results))handler onQueue:(dispatch_queue_t)queue;"
+
  Retrieves the contents given by the NSURL* object performing the request asynchronously (thus non blocking your current queue). Once response is received, the block ('withCompletionHandler') is executed on the queue specified in the function call ('onQueue'). This block has a parameter ('results') that contains an NSDictionary* with the contents of the response.
 
 The NSDictionary* with the results returned in any of the above functions will return 'nil' if no response is successfully obtained from the request.
