@@ -60,7 +60,7 @@
 
 -(void)loadImage
 {
-    NSString *avatar_url = [self.user_info valueForKeyPath:@"avatar.Large"];
+    NSString *avatar_url = [self.user_info valueForKeyPath:@"avatar.large"];
     if (avatar_url != (id)[NSNull null]){
         NSURL *imgURL=[NSURL URLWithString:avatar_url];
         NSData *imgData=[NSData dataWithContentsOfURL:imgURL];
