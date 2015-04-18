@@ -60,7 +60,7 @@
 		C61455CF1937836000F69762 /* FreesoundSampleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreesoundSampleAppTests.m; sourceTree = "<group>"; };
 		C61455E0193783EC00F69762 /* Freesound-iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Freesound-iOS.h"; sourceTree = "<group>"; };
 		C61455E1193783EC00F69762 /* Freesound-iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Freesound-iOS.m"; sourceTree = "<group>"; };
-		C61455E2193783EC00F69762 /* FreesoundAPIKey.example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreesoundAPIKey.example.h; sourceTree = "<group>"; };
+		C61455E2193783EC00F69762 /* FreesoundAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreesoundAPIKey.h; sourceTree = "<group>"; };
 		C61455E3193783EC00F69762 /* FreesoundAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreesoundAPIKey.h; sourceTree = "<group>"; };
 		C61455E51937853300F69762 /* SoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundViewController.h; sourceTree = "<group>"; };
 		C61455E61937853300F69762 /* SoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundViewController.m; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 			children = (
 				C61455E0193783EC00F69762 /* Freesound-iOS.h */,
 				C61455E1193783EC00F69762 /* Freesound-iOS.m */,
-				C61455E2193783EC00F69762 /* FreesoundAPIKey.example.h */,
+				C61455E2193783EC00F69762 /* FreesoundAPIKey.h */,
 				C61455E3193783EC00F69762 /* FreesoundAPIKey.h */,
 			);
 			path = "Freesound-iOS";
