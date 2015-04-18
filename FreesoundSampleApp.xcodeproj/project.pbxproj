@@ -16,27 +16,12 @@
 		C61455B81937836000F69762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C61455B61937836000F69762 /* Main.storyboard */; };
 		C61455BB1937836000F69762 /* FreesoundSampleAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455BA1937836000F69762 /* FreesoundSampleAppViewController.m */; };
 		C61455BD1937836000F69762 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C61455BC1937836000F69762 /* Images.xcassets */; };
-		C61455C41937836000F69762 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C61455C31937836000F69762 /* XCTest.framework */; };
-		C61455C51937836000F69762 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C61455A41937836000F69762 /* Foundation.framework */; };
-		C61455C61937836000F69762 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C61455A81937836000F69762 /* UIKit.framework */; };
-		C61455CE1937836000F69762 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C61455CC1937836000F69762 /* InfoPlist.strings */; };
-		C61455D01937836000F69762 /* FreesoundSampleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455CF1937836000F69762 /* FreesoundSampleAppTests.m */; };
 		C61455E4193783EC00F69762 /* Freesound-iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455E1193783EC00F69762 /* Freesound-iOS.m */; };
 		C61455E71937853300F69762 /* SoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455E61937853300F69762 /* SoundViewController.m */; };
 		C61455EC1937856300F69762 /* SearchResultsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C61455E91937856300F69762 /* SearchResultsTVC.m */; };
 		C6837D241938D4450097853D /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6837D231938D4450097853D /* UserViewController.m */; };
 		C6837D271938DA090097853D /* SoundAnalysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6837D261938DA090097853D /* SoundAnalysisViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C61455C71937836000F69762 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C61455991937836000F69762 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C61455A01937836000F69762;
-			remoteInfo = FreesoundSampleApp;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C61455A11937836000F69762 /* FreesoundSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreesoundSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,14 +38,13 @@
 		C61455B91937836000F69762 /* FreesoundSampleAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FreesoundSampleAppViewController.h; sourceTree = "<group>"; };
 		C61455BA1937836000F69762 /* FreesoundSampleAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreesoundSampleAppViewController.m; sourceTree = "<group>"; };
 		C61455BC1937836000F69762 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C61455C21937836000F69762 /* FreesoundSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreesoundSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C61455C31937836000F69762 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C61455CB1937836000F69762 /* FreesoundSampleAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FreesoundSampleAppTests-Info.plist"; sourceTree = "<group>"; };
 		C61455CD1937836000F69762 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C61455CF1937836000F69762 /* FreesoundSampleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FreesoundSampleAppTests.m; sourceTree = "<group>"; };
 		C61455E0193783EC00F69762 /* Freesound-iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Freesound-iOS.h"; sourceTree = "<group>"; };
 		C61455E1193783EC00F69762 /* Freesound-iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Freesound-iOS.m"; sourceTree = "<group>"; };
-		C61455E2193783EC00F69762 /* FreesoundAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreesoundAPIKey.h; sourceTree = "<group>"; };
+		C61455E2193783EC00F69762 /* FreesoundAPIKey.example.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreesoundAPIKey.example.h; sourceTree = "<group>"; };
 		C61455E3193783EC00F69762 /* FreesoundAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreesoundAPIKey.h; sourceTree = "<group>"; };
 		C61455E51937853300F69762 /* SoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundViewController.h; sourceTree = "<group>"; };
 		C61455E61937853300F69762 /* SoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundViewController.m; sourceTree = "<group>"; };
@@ -83,16 +67,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C61455BF1937836000F69762 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C61455C41937836000F69762 /* XCTest.framework in Frameworks */,
-				C61455C61937836000F69762 /* UIKit.framework in Frameworks */,
-				C61455C51937836000F69762 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -110,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				C61455A11937836000F69762 /* FreesoundSampleApp.app */,
-				C61455C21937836000F69762 /* FreesoundSampleAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,7 +156,7 @@
 			children = (
 				C61455E0193783EC00F69762 /* Freesound-iOS.h */,
 				C61455E1193783EC00F69762 /* Freesound-iOS.m */,
-				C61455E2193783EC00F69762 /* FreesoundAPIKey.h */,
+				C61455E2193783EC00F69762 /* FreesoundAPIKey.example.h */,
 				C61455E3193783EC00F69762 /* FreesoundAPIKey.h */,
 			);
 			path = "Freesound-iOS";
@@ -209,24 +182,6 @@
 			productReference = C61455A11937836000F69762 /* FreesoundSampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C61455C11937836000F69762 /* FreesoundSampleAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C61455D61937836000F69762 /* Build configuration list for PBXNativeTarget "FreesoundSampleAppTests" */;
-			buildPhases = (
-				C61455BE1937836000F69762 /* Sources */,
-				C61455BF1937836000F69762 /* Frameworks */,
-				C61455C01937836000F69762 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C61455C81937836000F69762 /* PBXTargetDependency */,
-			);
-			name = FreesoundSampleAppTests;
-			productName = FreesoundSampleAppTests;
-			productReference = C61455C21937836000F69762 /* FreesoundSampleAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -236,14 +191,6 @@
 				CLASSPREFIX = FreesoundSampleApp;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Frederic Font Corbera";
-				TargetAttributes = {
-					C61455A01937836000F69762 = {
-						DevelopmentTeam = 5EJK62P4MU;
-					};
-					C61455C11937836000F69762 = {
-						TestTargetID = C61455A01937836000F69762;
-					};
-				};
 			};
 			buildConfigurationList = C614559C1937836000F69762 /* Build configuration list for PBXProject "FreesoundSampleApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -259,7 +206,6 @@
 			projectRoot = "";
 			targets = (
 				C61455A01937836000F69762 /* FreesoundSampleApp */,
-				C61455C11937836000F69762 /* FreesoundSampleAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,14 +218,6 @@
 				C61455BD1937836000F69762 /* Images.xcassets in Resources */,
 				C61455AF1937836000F69762 /* InfoPlist.strings in Resources */,
 				C61455B81937836000F69762 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C61455C01937836000F69762 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C61455CE1937836000F69762 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,23 +239,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C61455BE1937836000F69762 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C61455D01937836000F69762 /* FreesoundSampleAppTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C61455C81937836000F69762 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C61455A01937836000F69762 /* FreesoundSampleApp */;
-			targetProxy = C61455C71937836000F69762 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C61455AD1937836000F69762 /* InfoPlist.strings */ = {
@@ -453,46 +375,6 @@
 			};
 			name = Release;
 		};
-		C61455D71937836000F69762 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FreesoundSampleApp.app/FreesoundSampleApp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FreesoundSampleApp/FreesoundSampleApp-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "FreesoundSampleAppTests/FreesoundSampleAppTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		C61455D81937836000F69762 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FreesoundSampleApp.app/FreesoundSampleApp";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FreesoundSampleApp/FreesoundSampleApp-Prefix.pch";
-				INFOPLIST_FILE = "FreesoundSampleAppTests/FreesoundSampleAppTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -510,15 +392,6 @@
 			buildConfigurations = (
 				C61455D41937836000F69762 /* Debug */,
 				C61455D51937836000F69762 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C61455D61937836000F69762 /* Build configuration list for PBXNativeTarget "FreesoundSampleAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C61455D71937836000F69762 /* Debug */,
-				C61455D81937836000F69762 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

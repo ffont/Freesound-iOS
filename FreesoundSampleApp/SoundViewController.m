@@ -35,7 +35,12 @@
     [self.playButton setEnabled:NO];
     [self.timeLabel setText:@"00:00.000"];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.soundDescription.text = [self.sound_info valueForKeyPath:@"description"];
+    NSString *soundDescriptionString = [self.sound_info valueForKeyPath:@"description"];
+    NSAttributedString *soundDescriptionAttributedString = [[NSAttributedString alloc] initWithData:[soundDescriptionString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                                 options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                                                                                           NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
+                                                                      documentAttributes:nil error:nil];
+    self.soundDescription.attributedText = soundDescriptionAttributedString;
     NSString *url = [self.sound_info valueForKeyPath:@"previews.preview-hq-mp3"];
     dispatch_queue_t fetchQ = dispatch_queue_create("sound data", NULL);
     dispatch_async(fetchQ, ^{

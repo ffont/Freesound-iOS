@@ -47,7 +47,12 @@
 {
     NSString *about_text = [self.user_info objectForKey:@"about"];
     if (about_text != (id)[NSNull null]){
-        self.userDescription.text = [self.user_info objectForKey:@"about"];
+        NSString *aboutString = [self.user_info objectForKey:@"about"];
+        NSAttributedString *aboutAttributedString = [[NSAttributedString alloc] initWithData:[aboutString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                                     options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                                                                                               NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
+                                                                          documentAttributes:nil error:nil];
+        self.userDescription.attributedText = aboutAttributedString;
     }
     self.numberOfSoundsLabel.text = [NSString stringWithFormat:@"Number of sounds: %@", [self.user_info objectForKey:@"num_sounds"]];
     dispatch_queue_t fetchQ = dispatch_queue_create("user avatar", NULL);
