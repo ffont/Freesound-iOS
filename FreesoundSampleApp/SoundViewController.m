@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (weak, nonatomic) IBOutlet UITextView *description;
+@property (weak, nonatomic) IBOutlet UITextView *soundDescription;
 @end
 
 
@@ -35,7 +35,12 @@
     [self.playButton setEnabled:NO];
     [self.timeLabel setText:@"00:00.000"];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.description.text = [self.sound_info valueForKeyPath:@"description"];
+    NSString *soundDescriptionString = [self.sound_info valueForKeyPath:@"description"];
+    NSAttributedString *soundDescriptionAttributedString = [[NSAttributedString alloc] initWithData:[soundDescriptionString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                                 options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+                                                                                           NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
+                                                                      documentAttributes:nil error:nil];
+    self.soundDescription.attributedText = soundDescriptionAttributedString;
     NSString *url = [self.sound_info valueForKeyPath:@"previews.preview-hq-mp3"];
     dispatch_queue_t fetchQ = dispatch_queue_create("sound data", NULL);
     dispatch_async(fetchQ, ^{
@@ -61,6 +66,10 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self StopSound];
+}
+
+-(void)dealloc{
+    [self.player.currentItem removeObserver:self forKeyPath:@"status"];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
